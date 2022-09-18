@@ -1,3 +1,4 @@
+# 완전 탐색
 import sys
 from itertools import permutations
 
@@ -10,7 +11,17 @@ for _ in range(n):
     x, s, b = map(int, sys.stdin.readline().split())
     x = list(str(x))
     removes = 0
-    l = len(candis)
-    for i in range(l):
+    for i in range(len(candis)):
         strike = 0
         ball = 0
+        i -= removes
+        for j in range(3):
+            if candis[i][j] == x[j]:
+                strike += 1
+            elif x[j] in candis[i]:
+                ball += 1
+        if (strike != s) or (ball != b):
+            candis.remove(candis[i])
+            removes += 1
+
+print(len(candis))
