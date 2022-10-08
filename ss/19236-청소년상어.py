@@ -58,6 +58,7 @@ def sol(sx, sy, score, board):
                 for j in range(4):
                     ttmp.append(board[i][j][:])
                 tmp.append(ttmp)
+            # sol(nsx, nsy, score, copy.deepcopy(board))
             sol(nsx, nsy, score, tmp)
 
 
